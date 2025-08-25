@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneConvertorLibrary", "TimeZoneConvertorLibrary.csproj", "{1F0064CE-0859-4DBD-81AE-292E5D49A9C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F0064CE-0859-4DBD-81AE-292E5D49A9C5}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0064CE-0859-4DBD-81AE-292E5D49A9C5}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{1F0064CE-0859-4DBD-81AE-292E5D49A9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0064CE-0859-4DBD-81AE-292E5D49A9C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D3299B2-B74D-4E5F-A4CC-8D3D1F9C303D}
+	EndGlobalSection
+EndGlobal
