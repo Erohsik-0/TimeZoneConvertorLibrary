@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <PackageId>TimeZoneConversoinPkg</PackageId>
-	  <Version>1.0.0</Version>
+	  <PackageId>TimeZoneConversionPkg</PackageId>
+	  <Version>1.0.1</Version>
 	  <Authors>Kishore</Authors>
 	  <Company>Kishore</Company>
 	  <Description>A robust library for converting timestamps between timezones in Excel files</Description>

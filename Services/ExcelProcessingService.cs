@@ -1,11 +1,6 @@
 ﻿using ClosedXML.Excel;
 using NodaTime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TimeZoneConversionLibrary;
+using Microsoft.Extensions.Logging;
 using TimeZoneConvertorLibrary.Exceptions;
 using TimeZoneConvertorLibrary.Interfaces;
 using TimeZoneConvertorLibrary.Models;
@@ -18,11 +13,11 @@ namespace TimeZoneConvertorLibrary.Services
     public class ExcelProcessingService : IExcelProcessingService
     {
         private readonly ITimeZoneTransformationService _transformationService;
-        private readonly ILogger _logger;
+        private readonly ILogger<ExcelProcessingService> _logger;
 
         public ExcelProcessingService(
             ITimeZoneTransformationService transformationService,
-            ILogger logger)
+            ILogger<ExcelProcessingService> logger)
         {
             _transformationService = transformationService ?? throw new ArgumentNullException(nameof(transformationService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

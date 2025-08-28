@@ -1,9 +1,9 @@
 ﻿using NodaTime;
 using NodaTime.Text;
 using System.Collections.Concurrent;
-using TimeZoneConversionLibrary;
 using TimeZoneConvertorLibrary.Interfaces;
 using TimeZoneConvertorLibrary.Models;
+using Microsoft.Extensions.Logging;
 
 namespace TimeZoneConvertorLibrary.Services
 {
@@ -12,7 +12,7 @@ namespace TimeZoneConvertorLibrary.Services
     /// </summary>
     public class TimeZoneTransformationService : ITimeZoneTransformationService
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<TimeZoneTransformationService> _logger;
         private readonly ConcurrentDictionary<string, LocalDateTimePattern> _patternCache = new();
 
         private static readonly string[] CommonPatterns = {
@@ -29,7 +29,7 @@ namespace TimeZoneConvertorLibrary.Services
             "d/M/yyyy H:mm:ss"
         };
 
-        public TimeZoneTransformationService(ILogger logger)
+        public TimeZoneTransformationService(ILogger<TimeZoneTransformationService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             InitializePatternCache();

@@ -1,6 +1,6 @@
 ﻿using NodaTime;
 using System.Diagnostics;
-using TimeZoneConversionLibrary;
+using Microsoft.Extensions.Logging;
 using TimeZoneConvertorLibrary.Exceptions;
 using TimeZoneConvertorLibrary.Interfaces;
 using TimeZoneConvertorLibrary.Models;
@@ -15,13 +15,13 @@ namespace TimeZoneConvertorLibrary.Services
         private readonly IValidationService _validationService;
         private readonly IExcelProcessingService _excelProcessingService;
         private readonly IDateTimeZoneProvider _tzProvider;
-        private readonly ILogger _logger;
+        private readonly ILogger<TimeZoneConversionOrchestrator> _logger;
 
         public TimeZoneConversionOrchestrator(
             IValidationService validationService,
             IExcelProcessingService excelProcessingService,
             IDateTimeZoneProvider tzProvider,
-            ILogger logger)
+            ILogger<TimeZoneConversionOrchestrator> logger)
         {
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _excelProcessingService = excelProcessingService ?? throw new ArgumentNullException(nameof(excelProcessingService));

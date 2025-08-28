@@ -1,7 +1,7 @@
 ﻿using ClosedXML.Excel;
 using NodaTime;
 using System.Text.RegularExpressions;
-using TimeZoneConversionLibrary;
+using Microsoft.Extensions.Logging;
 using TimeZoneConvertorLibrary.Exceptions;
 using TimeZoneConvertorLibrary.Interfaces;
 using TimeZoneConvertorLibrary.Models;
@@ -14,10 +14,10 @@ namespace TimeZoneConvertorLibrary.Services
     public class ValidationService : IValidationService
     {
         private readonly IDateTimeZoneProvider _tzProvider;
-        private readonly ILogger _logger;
+        private readonly ILogger<ValidationService> _logger;
         private static readonly Regex ExcelMagicBytes = new(@"^PK\x03\x04", RegexOptions.Compiled);
 
-        public ValidationService(IDateTimeZoneProvider tzProvider, ILogger logger)
+        public ValidationService(IDateTimeZoneProvider tzProvider, ILogger<ValidationService> logger)
         {
             _tzProvider = tzProvider ?? throw new ArgumentNullException(nameof(tzProvider));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
