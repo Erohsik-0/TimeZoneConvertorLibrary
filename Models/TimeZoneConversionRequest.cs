@@ -3,16 +3,28 @@
 namespace TimeZoneConvertorLibrary.Models
 {
     /// <summary>
-    /// Request model for timezone conversion operations
+    /// Request model for single datetime timezone conversion operations
     /// </summary>
     public class TimeZoneConversionRequest
     {
-        public byte[]? ExcelData { get; set; }
-        public string? ColumnName { get; set; }
-        public string? SourceTimeZone { get; set; }
-        public string? TargetTimeZone { get; set; }
-        public long MaxFileSizeBytes { get; set; } = 50 * 1024 * 1024; // 50MB default
-        public CancellationToken CancellationToken { get; set; } = default;
+        public DateTime DateTime { get; set; }
+        public string SourceTimeZone { get; set; } = string.Empty;
+        public string TargetTimeZone { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Creates a new timezone conversion request
+        /// </summary>
+        public TimeZoneConversionRequest(DateTime dateTime, string sourceTimeZone, string targetTimeZone)
+        {
+            DateTime = dateTime;
+            SourceTimeZone = sourceTimeZone ?? throw new ArgumentNullException(nameof(sourceTimeZone));
+            TargetTimeZone = targetTimeZone ?? throw new ArgumentNullException(nameof(targetTimeZone));
+        }
+
+        /// <summary>
+        /// Parameterless constructor for serialization support
+        /// </summary>
+        public TimeZoneConversionRequest() { }
     }
 
 }

@@ -20,10 +20,8 @@ namespace TimeZoneConvertorLibrary.Extensions
             services.AddSingleton<IDateTimeZoneProvider>(DateTimeZoneProviders.Tzdb);
 
             // Register our services
-            services.AddScoped<IValidationService, ValidationService>();
-            services.AddScoped<ITimeZoneTransformationService, TimeZoneTransformationService>();
-            services.AddScoped<IExcelProcessingService, ExcelProcessingService>();
-            services.AddScoped<ITimeZoneConversionOrchestrator, TimeZoneConversionOrchestrator>();
+            services.AddScoped<ITimeZoneValidationService, TimeZoneValidationService>();
+            services.AddScoped<ITimeZoneConversionService, TimeZoneConversionService>();
 
             // Ensure logging is available
             services.AddLogging();
@@ -41,5 +39,25 @@ namespace TimeZoneConvertorLibrary.Extensions
             services.AddSingleton(loggerFactory);
             return services.AddTimeZoneConversionServices();
         }
+
+
+        /// <summary>
+        /// Adds timezone conversion services as singletons for better performance
+        /// </summary>
+        public static IServiceCollection AddTimeZoneConversionSingletonServices(this IServiceCollection services)
+        {
+            // Register NodaTime provider
+            services.AddSingleton<IDateTimeZoneProvider>(DateTimeZoneProviders.Tzdb);
+
+            // Register our services as singletons
+            services.AddSingleton<ITimeZoneValidationService, TimeZoneValidationService>();
+            services.AddSingleton<ITimeZoneConversionService, TimeZoneConversionService>();
+
+            // Ensure logging is available
+            services.AddLogging();
+
+            return services;
+        }
+
     }
 }

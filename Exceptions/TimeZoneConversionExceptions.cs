@@ -21,21 +21,21 @@ namespace TimeZoneConvertorLibrary.Exceptions
             : base(userFriendlyMessage)
         {
             UserFriendlyMessage = userFriendlyMessage;
-            ErrorCode = errorCode ?? "EXPORT_ERROR";
+            ErrorCode = errorCode ?? "CONVERSION_ERROR";
         }
 
         public TimeZoneConversionExceptions(string userFriendlyMessage, Exception innerException, string? errorCode = null)
             : base(userFriendlyMessage, innerException)
         {
             UserFriendlyMessage = userFriendlyMessage;
-            ErrorCode = errorCode ?? "EXPORT_ERROR";
+            ErrorCode = errorCode ?? "CONVERSION_ERROR";
         }
 
         public TimeZoneConversionExceptions(string message, string userFriendlyMessage, string? errorCode = null)
             : base(message)
         {
             UserFriendlyMessage = userFriendlyMessage;
-            ErrorCode = errorCode ?? "EXPORT_ERROR";
+            ErrorCode = errorCode ?? "CONVERSION_ERROR";
         }
     }
 
@@ -53,10 +53,10 @@ namespace TimeZoneConvertorLibrary.Exceptions
     /// <summary>
     /// Exception for file format validation errors
     /// </summary>
-    public class FileFormatException : TimeZoneConversionExceptions
+    public class DateTimeParsingException : TimeZoneConversionExceptions
     {
-        public FileFormatException(string userFriendlyMessage)
-            : base(userFriendlyMessage, "FILE_FORMAT_ERROR")
+        public DateTimeParsingException(string userFriendlyMessage)
+            : base(userFriendlyMessage, "DATE_TIME_PARSING_ERROR")
         {
         }
     }
